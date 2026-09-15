@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Cadastro de Usuário</title>
+
+        <!-- Bootstrap 5 -->
+        <link 
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+            rel="stylesheet"
+        >
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link 
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" 
+            rel="stylesheet"
+        >
+
+        <style>
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Rubik', Arial, Helvetica, sans-serif;
+                min-height: 100vh;
+
+                background:
+
+                linear-gradient(
+                    120deg,
+                    #520404,
+                    #ee0914,
+                    #580000
+                );
+
+                color: white;
+            }
+
+            /* CONTAINER */
+
+            .container {
+                min-height: 100vh !important;
+                padding: 40px 20px;
+            }
+
+            /* CARD */
+
+            #card {
+                width: 100%;
+                max-width: 520px;
+
+                padding: 45px !important;
+
+                background: rgba(15, 15, 15, 0.95);
+
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 24px;
+
+                box-shadow:
+                    0 25px 60px rgba(0, 0, 0, 0.6),
+                    0 0 40px rgba(229, 9, 20, 0.08);
+
+                backdrop-filter: blur(15px);
+
+                transition: 0.3s ease;
+            }
+
+            #card:hover {
+                border-color: rgba(229, 9, 20, 0.35);
+
+                box-shadow:
+                    0 30px 70px rgba(0, 0, 0, 0.7),
+                    0 0 50px rgba(229, 9, 20, 0.12);
+            }
+
+            /* TÍTULO */
+
+            form h1 {
+                color: #FFF;
+
+                font-size: clamp(32px, 5vw, 45px);
+                font-weight: 800;
+
+                letter-spacing: -2px;
+                line-height: 1;
+
+                margin-bottom: 35px !important;
+            }
+
+            form h1::after {
+                content: "";
+
+                display: block;
+
+                width: 55px;
+                height: 4px;
+
+                margin: 15px auto 0;
+
+                border-radius: 10px;
+
+                background: #e50914;
+            }
+
+            /* LABELS */
+
+            .form-label {
+                color: #ddd;
+
+                font-size: 14px;
+                font-weight: 500;
+
+                margin-bottom: 8px;
+            }
+
+            /* INPUTS */
+
+            .form-control {
+                min-height: 50px;
+
+                padding: 12px 15px;
+
+                color: white !important;
+
+                background: #111 !important;
+
+                border: 1px solid #2b2b2b !important;
+
+                border-radius: 12px;
+
+                font-family: 'Rubik', sans-serif;
+
+                transition: 0.3s ease;
+            }
+
+            .form-control::placeholder {
+                color: #666;
+            }
+
+            .form-control:focus {
+                color: white !important;
+
+                background: #111 !important;
+
+                border-color: #e50914 !important;
+
+                box-shadow:
+                    0 0 0 3px rgba(229, 9, 20, 0.15) !important;
+
+                outline: none;
+            }
+
+            /* INPUT NUMBER */
+
+            #quantity {
+                appearance: textfield;
+            }
+
+            #quantity::-webkit-inner-spin-button,
+            #quantity::-webkit-outer-spin-button {
+                opacity: 1;
+            }
+
+            /* CHECKBOX */
+
+            #notifications {
+                width: 20px;
+                height: 20px;
+
+                margin-top: 3px;
+
+                background: #111;
+
+                border: 1px solid #444;
+
+                cursor: pointer;
+            }
+
+            #notifications:checked {
+                background-color: #e50914;
+                border-color: #e50914;
+            }
+
+            #notifications:focus {
+                box-shadow: none;
+            }
+
+            #notifications + .form-label {
+                margin-left: 8px;
+
+                color: #aaa;
+
+                font-size: 13px;
+                line-height: 1.5;
+
+                cursor: pointer;
+            }
+
+            /* BOTÃO */
+
+            #btnCadastrarInteressado {
+                min-height: 52px;
+
+                padding: 14px 25px;
+
+                background: #e50914;
+
+                border: none;
+                border-radius: 30px;
+
+                color: white;
+
+                font-family: 'Rubik', sans-serif;
+
+                font-size: 15px;
+                font-weight: 700;
+
+                transition: 0.3s ease;
+            }
+
+            #btnCadastrarInteressado:hover {
+                background: #ff202b;
+
+                transform: translateY(-3px);
+
+                box-shadow:
+                    0 10px 25px rgba(229, 9, 20, 0.3);
+            }
+
+            #btnCadastrarInteressado:active {
+                transform: translateY(0);
+            }
+
+            /* MENSAGENS */
+
+            #mensagem {
+                min-height: 0;
+            }
+
+            #mensagem .alert {
+                border: none;
+
+                border-radius: 12px;
+
+                padding: 13px 15px;
+
+                font-size: 14px;
+
+                margin-bottom: 25px;
+            }
+
+            #mensagem .alert-success {
+                background: rgba(25, 135, 84, 0.15);
+
+                color: #75d9a7;
+
+                border: 1px solid rgba(25, 135, 84, 0.3);
+            }
+
+            #mensagem .alert-danger {
+                background: rgba(229, 9, 20, 0.12);
+
+                color: #ff7b83;
+
+                border: 1px solid rgba(229, 9, 20, 0.3);
+            }
+
+            /* ESPAÇAMENTO DOS CAMPOS */
+
+            form .mb-3 {
+                margin-bottom: 22px !important;
+            }
+
+            form > .mb-3:last-child {
+                margin-top: 30px;
+
+                margin-bottom: 0 !important;
+            }
+
+            /* RESPONSIVIDADE */
+
+            @media (max-width: 600px) {
+
+                .container {
+                    padding: 25px 15px;
+                }
+
+                #card {
+                    max-width: 100%;
+
+                    padding: 30px 22px !important;
+
+                    border-radius: 20px;
+                }
+
+                form h1 {
+                    font-size: 32px;
+
+                    letter-spacing: -1.5px;
+                }
+
+                .form-control {
+                    min-height: 48px;
+                }
+
+                #btnCadastrarInteressado {
+                    min-height: 50px;
+                }
+            }
+
+            @media (max-width: 380px) {
+
+                #card {
+                    padding: 25px 18px !important;
+                }
+
+                form h1 {
+                    font-size: 28px;
+                }
+
+                #notifications + .form-label {
+                    font-size: 12px;
+                }
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="container vh-100 d-flex justify-content-center align-items-center">
+
+            <div class="card p-4" id="card">
+
+                <div class="mb-3" id="mensagem"></div>
+
+                <form>
+
+                    <h1 class="text-center mb-4"> Cadastro de Usuário </h1>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="username"> Nome </label>
+                        <input class="form-control" id="username" type="text" placeholder="Nome e Último nome">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="email"> E-mail </label>
+                        <input class="form-control" id="email" type="email" placeholder="nome@exemplo.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="telephone"> Telefone </label>
+                        <input class="form-control" id="telephone" type="tel" name="telephone" placeholder="(11) 99999-9999">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="quantity"> Quantidade </label>
+                        <input class="form-control" id="quantity" type="number" name="quantity" placeholder="Quantidade">
+                    </div>
+
+                    <div class="mb-3">
+                        <input id="notifications" type="checkbox" name="notifications">
+                        <label class="form-label" for="notifications"> Você deseja receber notificações de novidades no seu email ou telefone? </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-primary w-100" id="btnCadastrarInteressado" type="submit"> Cadastrar Interesse </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            const btnCadastrarInteressado = document.getElementById("btnCadastrarInteressado")
+
+            btnCadastrarInteressado.addEventListener("click", cadastrarInteressado)
+
+            async function cadastrarInteressado(e)
+            {
+                e.preventDefault()
+
+                const username = document.getElementById("username")
+                const email = document.getElementById("email")
+                const telephone = document.getElementById("telephone")
+                const quantity = document.getElementById("quantity")
+                const notifications = document.getElementById("notifications")
+                const mensagem = document.getElementById("mensagem")
+
+                const url = "/formulario"
+
+                const response = await fetch(url,
+                {
+                    method:'POST',
+                    headers:{ 'Content-Type':'application/json' },
+                    body: JSON.stringify(
+                    {
+                        username: username.value,
+                        email: email.value,
+                        telephone: telephone.value,
+                        quantity: Number(quantity.value),
+                        notifications: notifications.checked
+                    })
+                })
+
+                const data = await response.text()
+
+                if(response.ok)
+                {
+                    mensagem.innerHTML = `
+                        <div class="alert alert-success">
+                            Pedido cadastrado com sucesso!
+                        </div>
+                    `
+
+                    username.value = ""
+                    email.value = ""
+                    telephone.value = ""
+                    quantity.value = ""
+                    notifications.checked = false
+
+                }
+                else
+                {
+                    mensagem.innerHTML = `
+                        <div class="alert alert-danger">
+                            Erro ao cadastrar pedido!
+                        </div>
+                    `
+                }
+
+                console.log(data)
+            }
+
+        </script>
+
+    </body>
+
+</html>

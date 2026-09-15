@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SKY — Uma nova experiência está chegando</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: white;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 75px;
+
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(0, 0, 0, 0.85);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff2020;
+        }
+
+        .header-button {
+            background: #e50914;
+
+            padding: 12px 22px;
+
+            border-radius: 30px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 120px 7% 80px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.95) 0%,
+                    rgba(0,0,0,.78) 45%,
+                    rgba(0,0,0,.15) 100%
+                ),
+
+                url("https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .tag {
+
+            display: inline-block;
+
+            background: #e50914;
+
+            padding: 8px 16px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+
+        }
+
+        .hero h1 {
+
+            font-size: clamp(45px, 6vw, 82px);
+
+            line-height: .95;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 30px;
+
+        }
+
+        .hero h1 span {
+            color: #e50914;
+        }
+
+        .hero p {
+
+            color: #ddd;
+
+            font-size: 19px;
+
+            line-height: 1.6;
+
+            max-width: 600px;
+
+            margin-bottom: 35px;
+
+        }
+
+        .primary-button {
+
+            display: inline-block;
+
+            background: #e50914;
+
+            color: white;
+
+            padding: 17px 32px;
+
+            border-radius: 40px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: .3s;
+
+        }
+
+        .primary-button:hover {
+
+            background: #ff2933;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =========================
+           BENEFÍCIOS
+        ========================= */
+
+        .benefits {
+
+            padding: 110px 7%;
+
+            background: white;
+
+            color: #111;
+
+        }
+
+        .section-title {
+
+            max-width: 750px;
+
+            margin-bottom: 60px;
+
+        }
+
+        .section-title small {
+
+            color: #e50914;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+        }
+
+        .section-title h2 {
+
+            font-size: clamp(35px, 5vw, 60px);
+
+            line-height: 1;
+
+            margin-top: 15px;
+
+            letter-spacing: -2px;
+
+        }
+
+        .section-title p {
+
+            color: #555;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            margin-top: 20px;
+
+        }
+
+        .benefit-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+
+        }
+
+        .benefit {
+
+            padding: 35px 25px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 20px;
+
+            transition: .3s;
+
+        }
+
+        .benefit:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #e50914;
+
+        }
+
+        .icon {
+
+            font-size: 35px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .benefit h3 {
+
+            margin-bottom: 12px;
+
+        }
+
+        .benefit p {
+
+            color: #666;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =========================
+           PRODUTO
+        ========================= */
+
+        .product {
+
+            min-height: 750px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            background: #090909;
+
+        }
+
+        .product-image {
+
+            height: 750px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0),
+                    #090909
+                ),
+
+                url("https://images.unsplash.com/photo-1551817958-d9d86fb29431?auto=format&fit=crop&w=1200&q=80");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+        .product-content {
+
+            padding: 80px;
+
+            max-width: 700px;
+
+        }
+
+        .product-content h2 {
+
+            font-size: 55px;
+
+            line-height: 1;
+
+            margin: 20px 0;
+
+        }
+
+        .product-content h2 span {
+
+            color: #e50914;
+
+        }
+
+        .product-content p {
+
+            color: #bbb;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+
+        }
+
+        .features {
+
+            list-style: none;
+
+            margin-bottom: 35px;
+
+        }
+
+        .features li {
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #222;
+
+        }
+
+        .features li::before {
+
+            content: "✓";
+
+            color: #e50914;
+
+            font-weight: bold;
+
+            margin-right: 12px;
+
+        }
+
+
+        /* =========================
+           EXPERIÊNCIA
+        ========================= */
+
+        .experience {
+
+            padding: 140px 7%;
+
+            background:
+
+                linear-gradient(
+                    rgba(0,0,0,.7),
+                    rgba(0,0,0,.85)
+                ),
+
+                url("https://images.unsplash.com/photo-1601944177325-f8867652837f?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+        .experience-content {
+
+            max-width: 700px;
+
+        }
+
+        .experience h2 {
+
+            font-size: 60px;
+
+            line-height: 1;
+
+            margin: 20px 0;
+
+        }
+
+        .experience p {
+
+            color: #ddd;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================
+           CATEGORIAS
+        ========================= */
+
+        .categories {
+
+            padding: 110px 7%;
+
+            background: white;
+
+            color: #111;
+
+        }
+
+        .category-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+
+        }
+
+        .category {
+
+            height: 350px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: end;
+
+            padding: 25px;
+
+            color: white;
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+        .category:nth-child(1) {
+
+            background-image:
+
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,.8)
+                ),
+
+                url("https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=700&q=80");
+
+        }
+
+        .category:nth-child(2) {
+
+            background-image:
+
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,.8)
+                ),
+
+                url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80");
+
+        }
+
+        .category:nth-child(3) {
+
+            background-image:
+
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,.8)
+                ),
+
+                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80");
+
+        }
+
+        .category:nth-child(4) {
+
+            background-image:
+
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,.8)
+                ),
+
+                url("https://images.unsplash.com/photo-1504159506876-f8338247a14a?auto=format&fit=crop&w=700&q=80");
+
+        }
+
+        .category h3 {
+
+            font-size: 25px;
+
+        }
+
+
+        /* =========================
+           COMO FUNCIONA
+        ========================= */
+
+        .how {
+
+            padding: 120px 7%;
+
+            background: #090909;
+
+        }
+
+        .how h2 {
+
+            font-size: 55px;
+
+            margin-bottom: 60px;
+
+        }
+
+        .steps {
+
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 30px;
+
+        }
+
+        .step {
+
+            padding: 40px;
+
+            background: #111;
+
+            border-radius: 20px;
+
+            border: 1px solid #222;
+
+        }
+
+        .number {
+
+            font-size: 50px;
+
+            color: #e50914;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+        }
+
+        .step h3 {
+
+            margin-bottom: 15px;
+
+            font-size: 22px;
+
+        }
+
+        .step p {
+
+            color: #aaa;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           EXPECTATIVA
+        ========================= */
+
+        .expectation {
+
+            min-height: 600px;
+
+            padding: 120px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.9),
+                    rgba(0,0,0,.35)
+                ),
+
+                url("https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+        .expectation-content {
+
+            max-width: 650px;
+
+        }
+
+        .expectation h2 {
+
+            font-size: 60px;
+
+            line-height: 1;
+
+            margin: 20px 0;
+
+        }
+
+        .expectation p {
+
+            font-size: 19px;
+
+            color: #ddd;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================
+           DEPOIMENTOS
+        ========================= */
+
+        .testimonials {
+
+            padding: 110px 7%;
+
+            background: white;
+
+            color: #111;
+
+        }
+
+        .testimonial-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 25px;
+
+        }
+
+        .testimonial {
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            background: #f5f5f5;
+
+        }
+
+        .stars {
+
+            color: #e50914;
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .testimonial p {
+
+            color: #555;
+
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+
+        }
+
+        .testimonial strong {
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+
+            padding: 110px 7%;
+
+            background: #090909;
+
+        }
+
+        .faq h2 {
+
+            font-size: 55px;
+
+            margin-bottom: 50px;
+
+        }
+
+        details {
+
+            max-width: 900px;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid #333;
+
+        }
+
+        summary {
+
+            cursor: pointer;
+
+            font-size: 19px;
+
+            font-weight: bold;
+
+        }
+
+        details p {
+
+            color: #aaa;
+
+            margin-top: 20px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           BANNER FINAL
+        ========================= */
+
+        .final-banner {
+
+            min-height: 550px;
+
+            padding: 80px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+
+                linear-gradient(
+                    120deg,
+                    #7a0000,
+                    #e50914,
+                    #580000
+                );
+
+        }
+
+        .final-content {
+
+            max-width: 800px;
+
+        }
+
+        .final-content small {
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+        }
+
+        .final-content h2 {
+
+            font-size: clamp(40px,6vw,75px);
+
+            line-height: 1;
+
+            margin: 20px 0;
+
+        }
+
+        .final-content p {
+
+            font-size: 19px;
+
+            line-height: 1.6;
+
+            margin-bottom: 35px;
+
+        }
+
+        .final-button {
+
+            display: inline-block;
+
+            background: white;
+
+            color: #e50914;
+
+            padding: 18px 35px;
+
+            border-radius: 40px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: .3s;
+
+        }
+
+        .final-button:hover {
+
+            transform: scale(1.05);
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding: 60px 7%;
+
+            background: #030303;
+
+            text-align: center;
+
+        }
+
+        footer .logo {
+
+            margin-bottom: 20px;
+
+        }
+
+        footer p {
+
+            color: #777;
+
+            margin: 15px 0;
+
+        }
+
+        footer nav {
+
+            justify-content: center;
+
+            margin: 25px 0;
+
+        }
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .benefit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 500px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .product-content {
+                padding: 50px 7%;
+            }
+
+            .product-content h2 {
+                font-size: 42px;
+            }
+
+            .experience h2,
+            .expectation h2,
+            .how h2,
+            .faq h2 {
+                font-size: 42px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo"> SKY </div>
+
+        <nav>
+
+            <a href="#novidade"> A Novidade </a>
+
+            <a href="#beneficios"> Benefícios </a>
+
+            <a href="#experiencia"> Experiência </a>
+
+            <a href="#duvidas"> Dúvidas </a>
+
+        </nav>
+
+        <a href="#interesse" class="header-button"> Quero saber mais </a>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="novidade" >
+
+        <div class="hero-content">
+
+            <span class="tag"> LANÇAMENTO EM BREVE </span>
+
+            <h1>
+                A TV que você já ama,
+                <span> agora ainda melhor. </span>
+            </h1>
+
+            <p>
+
+                Uma nova experiência de entretenimento
+                está chegando.
+
+                Mais qualidade, praticidade e diversão
+                para você aproveitar todos os momentos.
+
+            </p>
+
+            <a href="#conheca" class="primary-button"> Descubra a novidade → </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUÇÃO -->
+
+    <section class="benefits" id="conheca" >
+
+        <div class="section-title">
+
+            <small> UMA NOVA EXPERIÊNCIA </small>
+
+            <h2>
+
+                Prepare-se para conhecer
+                uma nova forma de assistir TV.
+
+            </h2>
+
+            <p>
+
+                A SKY está preparando uma novidade
+                para transformar seus momentos de
+                entretenimento.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- BENEFÍCIOS -->
+
+    <section class="benefits" id="beneficios">
+
+        <div class="section-title">
+
+            <small> POR QUE VOCÊ VAI GOSTAR? </small>
+
+            <h2> Muito mais do que assistir TV. </h2>
+
+            <p>
+
+                Uma experiência pensada para
+                acompanhar você em todos os momentos.
+
+            </p>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+            <article class="benefit">
+
+                <div class="icon"> 📺 </div>
+
+                <h3> Alta qualidade </h3>
+
+                <p>
+
+                    Uma experiência de imagem
+                    pensada para deixar seus
+                    conteúdos ainda melhores.
+
+                </p>
+
+            </article>
+
+
+            <article class="benefit">
+
+                <div class="icon"> 📡 </div>
+
+                <h3> Sinal de qualidade </h3>
+
+                <p>
+
+                    Tecnologia desenvolvida para
+                    proporcionar uma experiência
+                    mais estável.
+
+                </p>
+
+            </article>
+
+
+            <article class="benefit">
+
+                <div class="icon"> ⚡ </div>
+
+                <h3> Praticidade </h3>
+
+                <p>
+
+                    Uma solução simples para
+                    aproveitar seu entretenimento.
+
+                </p>
+
+            </article>
+
+
+            <article class="benefit">
+
+                <div class="icon"> 👨‍👩‍👧‍👦 </div>
+
+                <h3> Para toda a família </h3>
+
+                <p>
+
+                    Conteúdos para diferentes
+                    gostos e momentos.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUTO -->
+
+    <section class="product">
+
+        <div class="product-image"></div>
+
+        <div class="product-content">
+
+            <small> CONHEÇA A NOVIDADE </small>
+
+            <h2>
+                Uma nova forma
+                <span> de aproveitar. </span>
+            </h2>
+
+            <p>
+
+                Estamos preparando uma nova
+                experiência SKY para quem gosta
+                de ter entretenimento de qualidade
+                sempre por perto.
+
+            </p>
+
+
+            <ul class="features">
+
+                <li> Experiência de alta qualidade </li>
+
+                <li> Tecnologia moderna </li>
+
+                <li> Praticidade no dia a dia </li>
+
+                <li> Conteúdo para toda a família </li>
+
+                <li> Uma nova experiência SKY </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIÊNCIA -->
+
+    <section class="experience" id="experiencia">
+
+        <div class="experience-content">
+
+            <small> ENTRETENIMENTO </small>
+
+            <h2>
+
+                Seus momentos.
+                Do seu jeito.
+
+            </h2>
+
+            <p>
+
+                Filmes, séries, esportes,
+                notícias e muito mais.
+
+                Uma experiência criada para
+                acompanhar seus momentos de
+                descanso, diversão e lazer.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIAS -->
+
+    <section class="categories">
+
+        <div class="section-title">
+
+            <small> PARA TODOS OS GOSTOS </small>
+
+            <h2> Tem sempre algo para assistir. </h2>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <div class="category">
+                <h3> Filmes </h3>
+            </div>
+
+
+            <div class="category">
+                <h3> Esportes </h3>
+            </div>
+
+
+            <div class="category">
+                <h3> Séries </h3>
+            </div>
+
+
+            <div class="category">
+                <h3> Família </h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMO FUNCIONA -->
+
+    <section class="how">
+
+        <h2> Quer saber primeiro? </h2>
+
+
+        <div class="steps">
+
+            <article class="step">
+
+                <div class="number"> 01 </div>
+
+                <h3> Conheça </h3>
+
+                <p>
+
+                    Descubra tudo sobre a nova
+                    experiência que estamos preparando.
+
+                </p>
+
+            </article>
+
+
+            <article class="step">
+
+                <div class="number"> 02 </div>
+
+                <h3> Cadastre seu interesse </h3>
+
+                <p>
+
+                    Deixe seus dados para receber
+                    novidades sobre o lançamento.
+
+                </p>
+
+            </article>
+
+
+            <article class="step">
+
+                <div class="number"> 03 </div>
+
+                <h3> Seja o primeiro a saber </h3>
+
+                <p>
+
+                    Receba informações quando
+                    a novidade estiver disponível.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPECTATIVA -->
+
+    <section class="expectation">
+
+        <div class="expectation-content">
+
+            <small> ESTÁ CHEGANDO </small>
+
+            <h2> E isso é só o começo... </h2>
+
+            <p>
+
+                Uma nova experiência está sendo
+                preparada para quem não abre mão
+                de bons momentos em frente à TV.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEPOIMENTOS -->
+
+    <section class="testimonials">
+
+        <div class="section-title">
+
+            <small> EXPECTATIVA </small>
+
+            <h2>
+
+                Uma novidade que já está
+                despertando curiosidade.
+
+            </h2>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+            <article class="testimonial">
+
+                <div class="stars"> ★★★★★ </div>
+
+                <p>
+
+                    “Uma nova experiência de TV
+                    é exatamente o que eu estava
+                    esperando.”
+
+                </p>
+
+                <strong> — Carlos M. </strong>
+
+            </article>
+
+
+            <article class="testimonial">
+
+                <div class="stars"> ★★★★★ </div>
+
+                <p>
+
+                    “Estou curiosa para descobrir
+                    todos os detalhes desse
+                    lançamento.”
+
+                </p>
+
+                <strong> — Mariana S. </strong>
+
+            </article>
+
+
+            <article class="testimonial">
+
+                <div class="stars"> ★★★★★ </div>
+
+                <p>
+
+                    “Se a proposta for tão boa quanto
+                    parece, quero ser uma das primeiras
+                    pessoas a conhecer.”
+
+                </p>
+
+                <strong> — Juliana P. </strong>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="faq" id="duvidas">
+
+        <h2> Ainda tem dúvidas? </h2>
+
+
+        <details>
+
+            <summary> Quando será o lançamento? </summary>
+
+            <p>
+
+                O lançamento será anunciado
+                em breve.
+
+                Cadastre seu interesse para
+                acompanhar as novidades.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary> O produto já está disponível? </summary>
+
+            <p>
+
+                Ainda não.
+
+                Estamos preparando o lançamento
+                da nova experiência SKY.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary> Como vou saber quando estiver disponível? </summary>
+
+            <p>
+
+                Cadastre seu interesse e fique
+                por dentro das novidades.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary> Posso receber mais informações? </summary>
+
+            <p>
+
+                Sim.
+
+                Ao cadastrar seu interesse,
+                você poderá receber informações
+                sobre o lançamento.
+
+            </p>
+
+        </details>
+
+    </section>
+
+
+    <!-- BANNER FINAL -->
+
+    <section class="final-banner" id="interesse">
+
+        <div class="final-content">
+
+            <small> LANÇAMENTO EM BREVE </small>
+
+            <h2> Seja o primeiro a saber. </h2>
+
+            <p>
+
+                Cadastre seu interesse e receba
+                as novidades sobre essa nova
+                experiência SKY.
+
+            </p>
+
+
+            <!-- BOTÃO QUE LEVA PARA A PÁGINA DE CADASTRO DE INTERESSE -->
+
+            <a href="/formulario" class="final-button" > QUERO SER AVISADO → </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="logo"> SKY </div>
+
+        <p> Uma nova experiência está chegando. </p>
+
+        <nav>
+
+            <a href="#novidade"> Início </a>
+
+            <a href="#beneficios"> Benefícios </a>
+
+            <a href="#experiencia"> Experiência </a>
+
+            <a href="#duvidas"> Dúvidas </a>
+
+        </nav>
+
+        <p> © 2026 SKY. Todos os direitos reservados. </p>
+
+    </footer>
+
+
+</body>
+
+</html>

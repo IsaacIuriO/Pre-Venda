@@ -1,0 +1,32 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "atividade 15/09/2026: crie um site de pre-venda",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacIuriO/Pre-Venda.git"
+  },
+  "keywords": [
+    "pre",
+    "venda",
+    "atividade",
+    "senai"
+  ],
+  "author": "Isaac Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaacIuriO/Pre-Venda/issues"
+  },
+  "homepage": "https://github.com/IsaacIuriO/Pre-Venda#readme",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.24.4",
+    "nodemon": "^3.1.14",
+    "sequelize": "^6.37.8"
+  }
+}
