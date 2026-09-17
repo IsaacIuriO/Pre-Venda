@@ -889,6 +889,199 @@
 
         }
 
+        /* =========================
+           PROPOSTA DE VALOR
+        ========================= */
+
+        .value-proposition {
+            position: relative;
+            overflow: hidden;
+
+            padding: 110px 7%;
+
+            background: #fff;
+            color: #111;
+
+            text-align: center;
+        }
+
+        /* Imagem semitransparente */
+        .value-proposition::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background-image: url("/kit_antena_parabolica.png");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 550px;
+
+            opacity: 0.2;
+
+            pointer-events: none;
+        }
+
+                /* Imagem semitransparente */
+        .value-proposition::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background-image: url("/antena_parabolica.png");
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 550px;
+
+            opacity: 0.2;
+
+            pointer-events: none;
+        }
+
+        /* Mantém o conteúdo acima da imagem */
+        .value-content {
+            position: relative;
+            z-index: 1;
+
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .value-content {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+        }
+
+        .value-content small {
+
+            color: #e50914;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+        }
+
+        .value-content h2 {
+
+            font-size: clamp(40px, 5vw, 65px);
+
+            line-height: 1;
+
+            margin: 20px 0;
+
+            letter-spacing: -2px;
+
+        }
+
+        .value-content p {
+
+            color: #555;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            max-width: 650px;
+
+            margin: 0 auto 35px;
+
+        }
+
+        .price-card {
+
+            display: inline-block;
+
+            min-width: 320px;
+
+            padding: 35px 50px;
+
+            background: #090909;
+
+            color: white;
+
+            border-radius: 25px;
+
+            border: 1px solid #222;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,.15);
+
+        }
+
+        .price-card span {
+
+            display: block;
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+        }
+
+        .price {
+
+            font-size: clamp(45px, 6vw, 70px);
+
+            font-weight: 900;
+
+            color: #e50914;
+
+            letter-spacing: -3px;
+
+        }
+
+        .price-card p {
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            margin: 10px 0 0;
+
+        }
+
+        .value-button {
+
+            display: inline-block;
+
+            margin-top: 30px;
+
+            background: #e50914;
+
+            color: white;
+
+            padding: 15px 30px;
+
+            border-radius: 40px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: .3s;
+
+        }
+
+        .value-button:hover {
+
+            background: #ff2933;
+
+            transform: translateY(-3px);
+
+        }
+
 
         /* =========================
            BANNER FINAL
@@ -1099,10 +1292,13 @@
         <div class="logo"> SKY </div>
 
         <nav>
+
             <a href="#novidade"> A Novidade </a>
             <a href="#beneficios"> Benefícios </a>
             <a href="#experiencia"> Experiência </a>
             <a href="#duvidas"> Dúvidas </a>
+            <a href="#valor"> Proposta de Valor </a>
+
         </nav>
 
         <a href="#interesse" class="header-button"> Quero saber mais </a>
@@ -1614,6 +1810,52 @@
 
     </section>
 
+    
+    <!-- PROPOSTA DE VALOR -->
+
+    <section class="value-proposition" id="valor">
+
+        <div class="value-content">
+
+            <small> PROPOSTA DE VALOR </small>
+
+            <h2>
+                Uma nova experiência
+                por um preço acessível.
+            </h2>
+
+            <p>
+
+                Tenha acesso ao kit da antena parabólica
+                SKY e prepare-se para uma nova forma
+                de aproveitar seus conteúdos favoritos.
+
+            </p>
+
+            <div class="price-card">
+
+                <span> Kit Antena Parabólica </span>
+
+                <div class="price">
+                    R$ 239,90
+                </div>
+
+                <p>
+                    Valor do kit
+                </p>
+
+            </div>
+
+            <br>
+
+            <a href="#interesse" class="value-button">
+                QUERO SABER MAIS →
+            </a>
+
+        </div>
+
+    </section>
+
 
     <!-- BANNER FINAL -->
 
@@ -1657,6 +1899,8 @@
             <a href="#beneficios"> Benefícios </a>
             <a href="#experiencia"> Experiência </a>
             <a href="#duvidas"> Dúvidas </a>
+            <a href="#valor"> Proposta de Valor </a>
+            <a href="#interesse"> Quero ser avisado </a>
 
         </nav>
 
