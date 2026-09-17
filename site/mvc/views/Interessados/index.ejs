@@ -204,6 +204,66 @@
 
         }
 
+        /* =========================
+        INTRODUÇÃO
+        ========================= */
+
+        .intro {
+
+            padding: 80px 7%;
+
+            background: white;
+
+            color: #111;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+
+            min-height: 650px;
+        }
+
+        .intro-content {
+
+            max-width: 650px;
+        }
+
+        .intro .section-title {
+
+            margin-bottom: 0;
+        }
+
+        .intro-image {
+
+            width: 100%;
+
+            height: 800px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+        }
+
+        .intro-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+            display: block;
+        }
+
 
         /* =========================
            BENEFÍCIOS
@@ -211,7 +271,7 @@
 
         .benefits {
 
-            padding: 110px 7%;
+            padding: 60px 7%;
 
             background: white;
 
@@ -646,6 +706,20 @@
 
         }
 
+        section.how nav a{
+            background-color: #e50914 ;
+
+            font-size: large;
+
+            margin-bottom: 70px;
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        section.how nav a:hover{
+            background-color: #580000;
+        }
+
 
         /* =========================
            EXPECTATIVA
@@ -1025,15 +1099,10 @@
         <div class="logo"> SKY </div>
 
         <nav>
-
             <a href="#novidade"> A Novidade </a>
-
             <a href="#beneficios"> Benefícios </a>
-
             <a href="#experiencia"> Experiência </a>
-
             <a href="#duvidas"> Dúvidas </a>
-
         </nav>
 
         <a href="#interesse" class="header-button"> Quero saber mais </a>
@@ -1064,7 +1133,7 @@
 
             </p>
 
-            <a href="#conheca" class="primary-button"> Descubra a novidade → </a>
+            <a href="#interesse" class="primary-button"> Descubra a novidade → </a>
 
         </div>
 
@@ -1073,26 +1142,32 @@
 
     <!-- INTRODUÇÃO -->
 
-    <section class="benefits" id="conheca" >
+    <section class="intro" id="beneficios">
 
-        <div class="section-title">
+        <div class="intro-content">
 
-            <small> UMA NOVA EXPERIÊNCIA </small>
+            <div class="section-title">
 
-            <h2>
+                <small>UMA NOVA EXPERIÊNCIA</small>
 
-                Prepare-se para conhecer
-                uma nova forma de assistir TV.
+                <h2>
+                    Prepare-se para conhecer
+                    uma nova forma de assistir TV.
+                </h2>
 
-            </h2>
+                <p>
+                    A SKY está preparando uma novidade
+                    para transformar seus momentos de
+                    entretenimento.
+                </p>
 
-            <p>
+            </div>
 
-                A SKY está preparando uma novidade
-                para transformar seus momentos de
-                entretenimento.
+        </div>
 
-            </p>
+        <div class="intro-image">
+
+            <img src="/antena_parabolica.png" alt="Antena SKY">
 
         </div>
 
@@ -1101,7 +1176,7 @@
 
     <!-- BENEFÍCIOS -->
 
-    <section class="benefits" id="beneficios">
+    <section class="benefits">
 
         <div class="section-title">
 
@@ -1311,6 +1386,9 @@
 
         <h2> Quer saber primeiro? </h2>
 
+        <nav>
+            <a href="#interesse"> Clique aqui </a>
+        </nav>
 
         <div class="steps">
 
@@ -1576,11 +1654,8 @@
         <nav>
 
             <a href="#novidade"> Início </a>
-
             <a href="#beneficios"> Benefícios </a>
-
             <a href="#experiencia"> Experiência </a>
-
             <a href="#duvidas"> Dúvidas </a>
 
         </nav>
