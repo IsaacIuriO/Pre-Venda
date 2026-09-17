@@ -27,26 +27,37 @@ class InteressadosService
         return id;
     }
 
-    async buscarTodosInteressados()
+    async listarInteressados()
     {
         const interessados = []
         const dados = await this.#interessadosSchema.findAll();
 
-        for(const interessados of dados)
+        for(const interessado of dados)
         {
             const i = new Interessados(
-                interessados.username,
-                interessados.email,
-                interessados.telephone,
-                interessados.quantity,
-                interessados.notifications
+                interessado.username,
+                interessado.email,
+                interessado.telephone,
+                interessado.quantity,
+                interessado.notifications
             )
 
-            u.id = interessados.id
-            interessados.push(u)
+            i.id = interessado.id
+            interessados.push(i)
         }
 
         return interessados
+    }
+
+        async deletarInteressado(id)
+    {
+        const interessado = await this.#interessadosSchema.findOne
+        ({
+            where:{ id: id }
+        });
+
+        const affectedRows = await interessado.destroy()
+        return affectedRows;
     }
 }
 

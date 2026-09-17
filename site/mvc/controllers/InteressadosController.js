@@ -30,6 +30,18 @@ class InteressadosController
         res.json({ id: id })
     }
 
+    async interessadosListar(req, res)
+    {
+        const interessados = await this.interessadosService.listarInteressados();
+        res.render('Interessados/lista', { interessados: interessados });
+    }
+
+    async interessadoDeletar(req, res)
+    {
+        const affectedRows = await this.interessadosService.deletarInteressado(req.params.id)
+        res.json({ affectedRows: affectedRows })
+    }
+
 }
 
 module.exports = new InteressadosController();
