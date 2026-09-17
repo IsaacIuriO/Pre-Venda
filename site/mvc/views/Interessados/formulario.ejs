@@ -118,6 +118,20 @@
                 background: #e50914;
             }
 
+            /* SUBTITULO */
+
+            form h2 {
+                color: #ffffffb0;
+
+                font-size: clamp(20px, 3vw, 15px);
+                font-weight: 300;
+
+                letter-spacing: -1px;
+                line-height: 1.1;
+
+                margin-bottom: 35px !important;
+            }
+
             /* LABELS */
 
             .form-label {
@@ -179,14 +193,21 @@
 
             /* CHECKBOX */
 
+            .notification-container {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
             #notifications {
                 width: 20px;
                 height: 20px;
 
-                margin-top: 3px;
+                margin: 0;
+
+                flex-shrink: 0;
 
                 background: #111;
-
                 border: 1px solid #444;
 
                 cursor: pointer;
@@ -201,12 +222,13 @@
                 box-shadow: none;
             }
 
-            #notifications + .form-label {
-                margin-left: 8px;
+            .notification-container label {
+                margin: 0;
 
                 color: #aaa;
 
                 font-size: 13px;
+                font-weight: 500;
                 line-height: 1.5;
 
                 cursor: pointer;
@@ -353,11 +375,12 @@
 
                 <form>
 
-                    <h1 class="text-center mb-4"> Cadastro de Usuário </h1>
+                    <h1 class="text-center mb-4"> Interessado? </h1>
+                    <h2 class="text-center mb-4">Cadastra-se para ficar por dentro das novidades!</h2>
 
                     <div class="mb-3">
                         <label class="form-label" for="username"> Nome </label>
-                        <input class="form-control" id="username" type="text" placeholder="Nome e Último nome">
+                        <input class="form-control" id="username" type="text" placeholder="Nome e Último Nome">
                     </div>
 
                     <div class="mb-3">
@@ -375,13 +398,13 @@
                         <input class="form-control" id="quantity" type="number" name="quantity" placeholder="Quantidade">
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3 notification-container">
                         <input id="notifications" type="checkbox" name="notifications">
-                        <label class="form-label" for="notifications"> Você deseja receber notificações de novidades no seu email ou telefone? </label>
+                        <label for="notifications"> Você deseja receber notificações de novidades no seu email ou telefone? </label>
                     </div>
 
                     <div class="mb-3">
-                        <button class="btn btn-primary w-100" id="btnCadastrarInteressado" type="submit"> Cadastrar Interesse </button>
+                        <button class="btn btn-primary w-100" id="btnCadastrarInteressado" type="submit"> Cadastrar-se </button>
                     </div>
 
                 </form>
@@ -407,7 +430,7 @@
                 const notifications = document.getElementById("notifications")
                 const mensagem = document.getElementById("mensagem")
 
-                const url = "/formulario"
+                const url = "/api/formulario"
 
                 const response = await fetch(url,
                 {

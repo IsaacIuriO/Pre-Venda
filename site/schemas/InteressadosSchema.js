@@ -24,7 +24,7 @@ Interessados.init(
     {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {isTelephone:true}
+        unique: true
     },
     
     quantity:
